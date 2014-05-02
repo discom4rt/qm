@@ -1,0 +1,158 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Ropa Sans', 'Helvetica', sans-serif;
+}
+
+#content {
+  display: table;
+  width: 100%;
+  clear: both;
+}
+
+.col {
+  float: left;
+  position: relative;
+  min-height: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#map {
+  width: 70%;
+  padding-right: 0;
+}
+
+#detail {
+  width: 30%;
+}
+
+.nav {
+  min-height: 50px;
+  border-bottom: 2px solid black;
+  margin-bottom: 20px;
+}
+
+#parcel-matrix {
+  min-width: 100%;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.parcel {
+  float: left;
+  height: 25px;
+  width: 25px;
+  background: rgb(45, 45, 45);
+  margin: 1px;
+}
+
+.parcel.new-line {
+  clear: both;
+}
+
+.nav .item {
+  padding: 25px 0 0 0;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.nav .item.right {
+  float: right;
+}
+
+#map-chooser {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#map-chooser li {
+  margin-bottom: 10px;
+}
+
+#map-chooser a {
+  color: black;
+  text-decoration: none;
+}
+
+#map-chooser a.active {
+  border-bottom: 1px solid black;
+}
+
+#logo {
+  padding-left: 40px;
+  float: right;
+  background: white;
+  margin-top: 20px;
+}
+
+#arrow {
+  float: left;
+  margin-right: 10px;
+}
+
+#help-details {
+  height: 160px;
+}
+
+#help-details p:first-child {
+  margin-bottom: 40px;
+}
+
+#help-details p:nth-child(2) {
+  margin-left: 15px;
+}
+
+#field-number span,
+#coordinates span {
+  margin-left: 5px;
+}
+
+#legend {
+  list-style-type: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+#legend li {
+  display: inline-block;
+  margin-right: 50px;
+}
+
+#legend li:before {
+  width: 25px;
+  height: 25px;
+  content: "";
+  display: inline-block;
+  margin-right: 25px; 
+}
+
+#legend li:first-child:before {
+  background: rgb(45, 45, 45);
+}
+
+#legend li:nth-child(2):before {
+  background: #E4231F;
+}
