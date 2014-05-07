@@ -2,6 +2,7 @@ $(function(){
   var MAX_NUM_SQUARES = 225,
     $parcels = $('#parcel-matrix'),
     $parcel = $('<li class="parcel"></li>'),
+    $legendSquares = $('#legend .square'),
     $newParcel,
     i;
 
@@ -14,4 +15,23 @@ $(function(){
 
     $parcels.append($newParcel);
   }
+
+  function resizeMatrix( even ) {
+    var dimension = $parcels.width()/15;
+
+    $legendSquares.css({
+      width: dimension - 2,
+      height: dimension - 2
+    });
+
+    $parcels.find('.parcel').each(function(){
+      $(this).css({
+        width: dimension,
+        height: dimension
+      });
+    });
+  }
+
+  $(window).on('resize', resizeMatrix);
+  $(window).trigger('resize');
 });

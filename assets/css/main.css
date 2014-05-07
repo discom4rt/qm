@@ -4,6 +4,17 @@
   box-sizing: border-box;
 }
 
+a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .cf:before,
 .cf:after {
     content: " ";
@@ -21,6 +32,7 @@
 html, body {
   height: 100%;
   font-family: 'Ropa Sans', 'Helvetica', sans-serif;
+  color: rgb(45, 45, 45);
 }
 
 #content {
@@ -42,6 +54,10 @@ html, body {
   padding-right: 0;
 }
 
+#map-parcels {
+  width: 100%;
+}
+
 #detail {
   width: 30%;
 }
@@ -55,7 +71,6 @@ html, body {
 #parcel-matrix {
   min-width: 100%;
   width: 100%;
-  list-style-type: none;
   margin: 0;
   padding: 0;
 }
@@ -65,10 +80,11 @@ html, body {
   height: 25px;
   width: 25px;
   background: rgb(45, 45, 45);
-  margin: 1px;
+  border: 1px solid white;
 }
 
 .parcel.new-line {
+  border-left: none;
   clear: both;
 }
 
@@ -85,20 +101,23 @@ html, body {
 #map-chooser {
   margin: 0;
   padding: 0;
-  list-style-type: none;
 }
 
 #map-chooser li {
   margin-bottom: 10px;
 }
 
-#map-chooser a {
-  color: black;
-  text-decoration: none;
-}
-
 #map-chooser a.active {
   border-bottom: 1px solid black;
+}
+
+#map-caption {
+  position: absolute;
+  right: 15%;
+}
+
+#map-caption span {
+  display: block;
 }
 
 #logo {
@@ -130,8 +149,11 @@ html, body {
   margin-left: 5px;
 }
 
+#coordinates {
+  font-weight: normal;
+}
+
 #legend {
-  list-style-type: none;
   margin: 0 0 20px 0;
   padding: 0;
 }
@@ -141,18 +163,17 @@ html, body {
   margin-right: 50px;
 }
 
-#legend li:before {
+#legend .square {
   width: 25px;
   height: 25px;
-  content: "";
   display: inline-block;
-  margin-right: 25px; 
+  margin-right: 25px;
 }
 
-#legend li:first-child:before {
+#legend li:first-child .square {
   background: rgb(45, 45, 45);
 }
 
-#legend li:nth-child(2):before {
+#legend li:nth-child(2) .square {
   background: #E4231F;
 }
