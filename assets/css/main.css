@@ -105,6 +105,8 @@ html, body {
 
 #map-chooser li {
   margin-bottom: 10px;
+  float: left;
+  clear: both;
 }
 
 #map-chooser a.active {
@@ -114,6 +116,7 @@ html, body {
 #map-caption {
   position: absolute;
   right: 15%;
+  display: none;
 }
 
 #map-caption span {

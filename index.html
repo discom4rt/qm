@@ -17,7 +17,7 @@
           </div>
         </header>
         <div id="map-container">
-          <ul id="map-chooser">
+          <ul class="cf" id="map-chooser">
             <li><a href="javascript:void(0);" class="active" >1</a></li>
             <li><a href="javascript:void(0);">2</a></li>
             <li><a href="javascript:void(0);">3</a></li>
@@ -27,7 +27,7 @@
               <strong><span id="map-caption-field">Feld 14400</span></strong>
               <span id="map-caption-coordinates">52° 28” 24” N, 13° 24” 5” O</span>
             </p>
-            <a href="javascript:void(0);">Auswahl aufheben</a>
+            <a id="cancel-selection" href="javascript:void(0);">Auswahl aufheben</a>
           </div>
           <svg id="map-parcels" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
           <g>
@@ -42144,8 +42144,15 @@
         </div>
       </div>
     </div>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="assets/js/square-test.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+    <script src="assets/js/qm.js"></script>
+    <script src="assets/js/models/field.js"></script>
+    <script src="assets/js/models/parcel.js"></script>
+    <script src="assets/js/collections/section.js"></script>
+    <script src="assets/js/views/field.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
 

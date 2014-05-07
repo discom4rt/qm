@@ -1,0 +1,5 @@
+QM = {
+  Models: {},
+  Collections: {},
+  Views: {}
+};

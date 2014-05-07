@@ -34,4 +34,6 @@ $(function(){
 
   $(window).on('resize', resizeMatrix);
   $(window).trigger('resize');
+
+  var fieldView = new QM.Views.FieldView();
 });
