@@ -42144,6 +42144,30 @@
         </div>
       </div>
     </div>
+    <script type="text/template" id="section-template">
+      <%
+        var i = 0, newLineClass, reservedClass;
+
+        parcels.forEach(function( parcel ) {
+          if(i % QM.Collections.Parcels.MAX_NUM_PARCEL_SQRT === 0){
+            newLineClass = ' new-line';
+          } else {
+            newLineClass = '';
+          }
+
+          if(parcel.get('reserved')){
+            reservedClass = ' reserved';
+          } else {
+            reservedClass = '';
+          }
+
+      %>
+        <li class="parcel<%= newLineClass %><%= reservedClass %>"></li>
+      <%
+        i++; 
+        }); 
+      %>
+    </script>
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
@@ -42153,6 +42177,10 @@
     <script src="assets/js/models/section.js"></script>
     <script src="assets/js/collections/field.js"></script>
     <script src="assets/js/views/field/show.js"></script>
+    <script src="assets/js/views/section/show.js"></script>
+    <script src="assets/js/fabricators/parcel.js"></script>
+    <script src="assets/js/fabricators/parcels.js"></script>
+    <script src="assets/js/fabricators/section.js"></script>
     <script src="assets/js/load-data.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

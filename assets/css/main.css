@@ -88,6 +88,10 @@ html, body {
   clear: both;
 }
 
+.parcel.reserved {
+  background: #E4231F;
+}
+
 .nav .item {
   padding: 25px 0 0 0;
   display: inline-block;
