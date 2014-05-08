@@ -1,5 +1,6 @@
 QM = {
   Models: {},
   Collections: {},
-  Views: {}
+  Views: {},
+  Data: {}
 };

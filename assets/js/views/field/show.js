@@ -8,7 +8,7 @@ QM.Views.FieldView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.model = new QM.Models.Field();
+    this.collection = QM.Data.field;
     this.$sectionOverview = $('#map-caption');
     this.$sectionNumber = $('#map-caption-field');
     this.$sectionCoordinates = $('#map-caption-coordinates');
@@ -23,9 +23,11 @@ QM.Views.FieldView = Backbone.View.extend({
 
   showDetail: function( event ) {
     var $target = $(event.target),
-      sectionNumber = $target.closest('g').prevAll().length + 1;
+      sectionNumber = $target.closest('g').prevAll().length + 1,
+      section = this.collection.at(sectionNumber);
 
-    this.$sectionNumber.text('Feld '+ sectionNumber);
+    this.$sectionNumber.text('Feld '+ section.get('number'));
+    this.$sectionCoordinates.text(section.get('coordinates'));
     this.$sectionOverview.show();
   },
 
