@@ -56,10 +56,6 @@ html, body {
   min-width: 820px;
 }
 
-#map-parcels {
-  width: 100%;
-}
-
 #detail {
   width: 30%;
 }
@@ -187,7 +183,8 @@ html, body {
   background: #E4231F;
 }
 
-.notice-container {
+.notice-container,
+.middle {
   width: 100%;
   text-align: center;
 }

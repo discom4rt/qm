@@ -15,6 +15,17 @@ QM.Views.FieldView = Backbone.View.extend({
     this.$sectionNumber = $('#map-caption-field');
     this.$sectionCoordinates = $('#map-caption-coordinates');
     this.$selectionLine = $('#selection-line');
+
+    QM.EventBus.on('selected:parcel', _.bind(this.teardown, this));
+  },
+
+  render: function() {
+
+  },
+
+  teardown: function() {
+    this.$map.hide();
+    this.$sectionOverview.hide();
   },
 
   changeMap: function( event ) {
@@ -39,9 +50,9 @@ QM.Views.FieldView = Backbone.View.extend({
     sectionNumberBox = this.$sectionNumber[0].getBoundingClientRect();
 
     y = sectionNumberBox.top - mapBox.top + 8;
-    x = sectionNumberBox.left - mapBox.left;
-    console.log(x, y)
-    console.log(sectionNumberBox,mapBox)
+    x = (sectionNumberBox.left * 800/mapBox.width) - mapBox.left - 10;
+    // console.log(x, y)
+    // console.log(sectionNumberBox,mapBox)
     this.$selectionLine.attr('d', 'M' + (targetBox.x - 1) + ',' + (targetBox.y + 1) + ' L' + x + ',' + y);
     this.$selectionLine.show();
 

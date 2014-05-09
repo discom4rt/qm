@@ -29,6 +29,7 @@
             </p>
             <a id="cancel-selection" href="javascript:void(0);">Auswahl aufheben</a>
           </div>
+          <div class="middle">
           <svg id="map-parcels" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
             <g>
               <rect x="509.939" y="221.2" fill="#2D2D2D" stroke="#FFFFFF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
@@ -42116,6 +42117,7 @@
             </g>
             <path id="selection-line" d="M50,50 L100,100" style="stroke:#2D2D2D; fill:none; display:none;"/>
           </svg>
+          </div>
         </div>
       </div>
       <div id="detail" class="col">
@@ -42148,38 +42150,32 @@
 
     <!-- TEMPLATES -->
     <script type="text/template" id="free-parcel-template">
-      <div class="notice-container">
-        <div class="notice">
-          <p>DIESER QUADTRATMETER HAT NOCH KEINEN BESITZER.</p>
-          <p>MÖCHTEST DU IHN HABEN? DANN KLICKE UNTEN AUF SICHERN!</p>
-          <ul class="actions">
-            <li><a href="javascript:void(0);">Sichern</a></li>
-          </ul>
-        </div>
+      <div class="notice">
+        <p>DIESER QUADTRATMETER HAT NOCH KEINEN BESITZER.</p>
+        <p>MÖCHTEST DU IHN HABEN? DANN KLICKE UNTEN AUF SICHERN!</p>
+        <ul class="actions">
+          <li><a id="choose-parcel" href="javascript:void(0);">Sichern</a></li>
+        </ul>
       </div>
     </script>
-    <script type="text/template" id="selected-parcel-template">
-      <div class="notice-container">
-        <div class="notice">
-          <p>HERZLICHEN GLÜCKWUNSCH!</p>
-          <p>DU BIST JETZT IM BESITZ EINES VIRTUELLEN QUADRATMETER TEMPELHOFER FELD!</p>
-          <p>SENDE IHN DIR PER MAIL ZU UND TEILE IHN MIT DEINEN FREUNDEN!</p>
-          <ul class="actions">
-            <li><a href="javascript:void(0);">Senden</a></li>
-            <li><a href="javascript:void(0);">Partizipieren</a></li>
-          </ul>
-        </div>
+    <script type="text/template" id="chosen-parcel-template">
+      <div class="notice">
+        <p>HERZLICHEN GLÜCKWUNSCH!</p>
+        <p>DU BIST JETZT IM BESITZ EINES VIRTUELLEN QUADRATMETER TEMPELHOFER FELD!</p>
+        <p>SENDE IHN DIR PER MAIL ZU UND TEILE IHN MIT DEINEN FREUNDEN!</p>
+        <ul class="actions">
+          <li><a id="send-parcel" href="javascript:void(0);">Senden</a></li>
+          <li><a href="javascript:void(0);">Partizipieren</a></li>
+        </ul>
       </div>
     </script>
     <script type="text/template" id="reserved-parcel-template">
-      <div class="notice-container">
-        <div class="notice bad">
-          <p>DIESER QUADRATMETER IST SCHON VERGEBEN!</p>
-          <ul class="actions">
-            <li><a href="javascript:void(0);">Besitzer kontaktieren</a></li>
-            <li><a href="javascript:void(0);">Partizipieren</a></li>
-          </ul>
-        </div>
+      <div class="notice bad">
+        <p>DIESER QUADRATMETER IST SCHON VERGEBEN!</p>
+        <ul class="actions">
+          <li><a id="contact-parcel" href="javascript:void(0);">Besitzer kontaktieren</a></li>
+          <li><a href="javascript:void(0);">Partizipieren</a></li>
+        </ul>
       </div>
     </script>
     <script type="text/template" id="section-template">
@@ -42208,9 +42204,14 @@
     </script>
 
     <!-- JAVASCRIPT -->
-    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script> -->
+
+    <script src="assets/js/lib/jquery.js"></script>
+    <script src="assets/js/lib/underscore.js"></script>
+    <script src="assets/js/lib/backbone.js"></script>
+
     <script src="assets/js/qm.js"></script>
     <script src="assets/js/models/parcel.js"></script>
     <script src="assets/js/collections/parcels.js"></script>
@@ -42218,6 +42219,7 @@
     <script src="assets/js/collections/field.js"></script>
     <script src="assets/js/views/field/show.js"></script>
     <script src="assets/js/views/section/show.js"></script>
+    <script src="assets/js/views/parcel/show.js"></script>
     <script src="assets/js/fabricators/parcel.js"></script>
     <script src="assets/js/fabricators/parcels.js"></script>
     <script src="assets/js/fabricators/section.js"></script>

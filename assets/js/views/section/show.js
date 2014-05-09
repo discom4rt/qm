@@ -4,28 +4,12 @@ QM.Views.SectionView = Backbone.View.extend({
   template: $('#section-template').html(),
 
   events: {
-    'click .parcel': 'showDetail',
-    'hover .parcel': 'updateDetailSummary'
+    'click .parcel': 'displayParcel',
+    'hover .parcel': 'updateParcelSummary'
   },
 
   initialize: function() {
-    this.model = QM.Fabricators.Section.fabricate({
-      parcel: {
-        reserved: function() {
-          return false;
-        }
-      },
-
-      section: {
-        number: function() {
-          return '';
-        },
-
-        coordinates: function() {
-          return '';
-        }
-      }
-    });
+    this.setDefaultModel();
 
     this.$parcelMatrix = $('#parcel-matrix');
     this.$fieldNumber = $('#field-number span');
@@ -55,24 +39,19 @@ QM.Views.SectionView = Backbone.View.extend({
   },
 
   hideDetail: function ( section ) {
-    this.model = QM.Fabricators.Section.fabricate({
-      parcel: {
-        reserved: function() {
-          return false;
-        }
-      },
-
-      section: {
-        number: function() {
-          return '';
-        },
-
-        coordinates: function() {
-          return '';
-        }
-      }
-    });
+    this.setDefaultModel();
     this.render();
+  },
+
+  displayParcel: function( event ) {
+    var $target = $(event.target),
+      parcelIndex = $target.prevAll('li').length,
+      parcel = this.model.parcels.at(parcelIndex),
+      view;
+      
+
+    QM.EventBus.trigger('selected:parcel', parcel);
+    view = new QM.Views.ParcelView({model: parcel});
   },
 
   resizeMatrix: function( event ) {
@@ -102,6 +81,26 @@ QM.Views.SectionView = Backbone.View.extend({
     if( this.$parcelMatrix.width() !== this.$parcelMatrix.height()) {
       this.resizeMatrix( -1 );
     }
+  },
+
+  setDefaultModel: function() {
+    this.model = QM.Fabricators.Section.fabricate({
+      parcel: {
+        reserved: function() {
+          return false;
+        }
+      },
+
+      section: {
+        number: function() {
+          return '';
+        },
+
+        coordinates: function() {
+          return '';
+        }
+      }
+    });
   }
 });
 

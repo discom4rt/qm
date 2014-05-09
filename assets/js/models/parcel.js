@@ -7,6 +7,10 @@ QM.Models.Parcel = Backbone.Model.extend({
     this.on('change:reserved', this.reserve, this);
   },
 
+  isReserved: function() {
+    return this.get('reserved');
+  },
+
   reserve: function( model, value, options ) {
 
   }
