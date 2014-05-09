@@ -14,6 +14,16 @@ QM.Views.SectionView = Backbone.View.extend({
         reserved: function() {
           return false;
         }
+      },
+
+      section: {
+        number: function() {
+          return '';
+        },
+
+        coordinates: function() {
+          return '';
+        }
       }
     });
 
@@ -24,8 +34,8 @@ QM.Views.SectionView = Backbone.View.extend({
 
     $(window).on('resize', _.debounce(_.bind(this.resizeMatrix, this), QM.Views.SectionView.RESIZE_DEBOUNCE_TIMEOUT));
 
-    QM.EventBus.on('selected:section', this.showDetail);
-    QM.EventBus.on('deselected:section', this.showDetail);
+    QM.EventBus.on('selected:section', _.bind(this.showDetail, this));
+    QM.EventBus.on('deselected:section', _.bind(this.hideDetail, this));
 
     this.render();
   },
@@ -38,8 +48,31 @@ QM.Views.SectionView = Backbone.View.extend({
     return this;
   },
 
-  showDetail: function( event ) {
+  showDetail: function( section ) {
+    this.model = section;
+    this.model.parcels = QM.Fabricators.Parcels.fabricate();
+    this.render();
+  },
 
+  hideDetail: function ( section ) {
+    this.model = QM.Fabricators.Section.fabricate({
+      parcel: {
+        reserved: function() {
+          return false;
+        }
+      },
+
+      section: {
+        number: function() {
+          return '';
+        },
+
+        coordinates: function() {
+          return '';
+        }
+      }
+    });
+    this.render();
   },
 
   resizeMatrix: function( event ) {

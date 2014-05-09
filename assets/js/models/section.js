@@ -4,7 +4,7 @@ QM.Models.Section = Backbone.Model.extend({
 
   defaults: {
     number: -1,
-    coordinates: '52° 28” 24” N, 13° 24” 5” O'
+    coordinates: '40° 26′ 46″ N 79° 58′ 56″ W'
   }
 });
 

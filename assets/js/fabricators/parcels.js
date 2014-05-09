@@ -7,7 +7,7 @@ QM.Fabricators.Parcels = {
 
   fabricate: function(options) {
     var parcels = new QM.Collections.Parcels(),
-      settings = _.extend({}, this.defaults, options),
+      settings = $.extend(true, {}, this.defaults, options),
       i;
 
     for(i = 0; i < QM.Collections.Parcels.MAX_NUM_PARCEL; i++) {

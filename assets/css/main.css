@@ -53,6 +53,7 @@ html, body {
 #map {
   width: 70%;
   padding-right: 0;
+  min-width: 820px;
 }
 
 #map-parcels {
