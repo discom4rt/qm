@@ -9,6 +9,7 @@ QM.Views.FieldView = Backbone.View.extend({
 
   initialize: function() {
     this.collection = QM.Data.field;
+    this.currentSectionIndex = -1;
     this.$sectionOverview = $('#map-caption');
     this.$sectionNumber = $('#map-caption-field');
     this.$sectionCoordinates = $('#map-caption-coordinates');
@@ -26,12 +27,18 @@ QM.Views.FieldView = Backbone.View.extend({
       sectionNumber = $target.closest('g').prevAll().length + 1,
       section = this.collection.at(sectionNumber);
 
+    this.currentSectionIndex = sectionNumber;
     this.$sectionNumber.text('Feld '+ section.get('number'));
     this.$sectionCoordinates.text(section.get('coordinates'));
     this.$sectionOverview.show();
+
+    // let everyone know that a section was selected
+    QM.EventBus.trigger('selected:section', section);
   },
 
   hideDetail: function( event ) {
     this.$sectionOverview.hide();
+    QM.EventBus.trigger('deselected:section', this.collection.at(this.currentSectionIndex));
+    this.currentSectionIndex = -1;
   }
 });

@@ -16,26 +16,29 @@ QM.Views.SectionView = Backbone.View.extend({
         }
       }
     });
+
     this.$parcelMatrix = $('#parcel-matrix');
-    this.$fieldNumber = $('#field-number');
-    this.$coordinates = $('#coordinates');
+    this.$fieldNumber = $('#field-number span');
+    this.$coordinates = $('#coordinates span');
     this.$legendSquares = $('#legend .square');
 
-    $(window).on('resize', _.debounce(_.bind(this.resizeMatrix, this), 250));
+    $(window).on('resize', _.debounce(_.bind(this.resizeMatrix, this), QM.Views.SectionView.RESIZE_DEBOUNCE_TIMEOUT));
+
+    QM.EventBus.on('selected:section', this.showDetail);
+    QM.EventBus.on('deselected:section', this.showDetail);
+
     this.render();
   },
 
   render: function() {
+    this.$fieldNumber.text(this.model.get('number'));
+    this.$coordinates.text(this.model.get('coordinates'));
     this.$parcelMatrix.html(_.template(this.template, { parcels: this.model.parcels }));
     this.resizeMatrix();
     return this;
   },
 
   showDetail: function( event ) {
-
-  },
-
-  updateDetailSummary: function( event ) {
 
   },
 
@@ -52,11 +55,9 @@ QM.Views.SectionView = Backbone.View.extend({
       height: dimension - 2
     });
 
-    this.$parcelMatrix.find('.parcel').each(function(){
-      $(this).css({
-        width: dimension,
-        height: dimension
-      });
+    this.$parcelMatrix.find('.parcel').css({
+      width: dimension,
+      height: dimension
     });
 
     // if we just retried, stop
@@ -72,3 +73,4 @@ QM.Views.SectionView = Backbone.View.extend({
 });
 
 QM.Views.SectionView.RESIZE_ADJUSTMENT = 0.2;
+QM.Views.SectionView.RESIZE_DEBOUNCE_TIMEOUT = 250;
