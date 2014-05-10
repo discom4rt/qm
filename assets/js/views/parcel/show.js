@@ -24,11 +24,16 @@ QM.Views.ParcelView = Backbone.View.extend({
     }
   },
 
+  // press escape to get out of whatever you are doing
+  cancel: function(event) {
+  },
+
   teardown: function() {
 
   },
 
   chooseParcel: function(event) {
+    this.model.set('reserved', true);
     this.el.html(this.chosenTemplate);
   },
 

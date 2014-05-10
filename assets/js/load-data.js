@@ -24,4 +24,8 @@ $(function() {
     QM.Data.field.add(section);
   }
 
+  QM.Data.currentUser = new QM.Models.User({
+    name: 'Ivo Schmid',
+    email: 'ivo.schmid@qm.com'
+  });
 });
