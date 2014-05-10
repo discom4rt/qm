@@ -8,28 +8,30 @@ QM.Views.ParcelView = Backbone.View.extend({
   events: {
     'click #choose-parcel': 'chooseParcel',
     'click #send-parcel': 'sendParcel',
-    'click #contact-parcel': 'contactParcel'
+    'click #contact-parcel': 'contactParcel',
+    'click .cancel-parcel': 'cancel'
   },
 
   initialize: function() {
-    this.el = $(this.el);
     this.render();
   },
 
   render: function() {
     if(this.model.isReserved()) {
-      this.el.html(this.reservedTemplate);
+      this.$el.html(this.reservedTemplate);
     } else {
-      this.el.html(this.freeTemplate);
+      this.$el.html(this.freeTemplate);
     }
   },
 
   // press escape to get out of whatever you are doing
   cancel: function(event) {
+    this.teardown();
   },
 
   teardown: function() {
-
+    this.$el.empty();
+    QM.EventBus.trigger('cancel:parcel');
   },
 
   chooseParcel: function(event) {

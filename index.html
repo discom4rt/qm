@@ -30,6 +30,39 @@
             <a id="cancel-selection" href="javascript:void(0);">Auswahl aufheben</a>
           </div>
           <div class="middle">
+          </div>
+        </div>
+      </div>
+      <div id="detail" class="col">
+        <header>
+          <div class="nav">
+            <span class="item">Navigation</span>
+            <img id="logo" src="assets/images/logo.png"/>
+          </div>
+        </header>
+        <div id="detail-container">
+          <div id="help-details">
+            <p>Wähle mit der Maus ein 225m<sup>2</sup> Feld</p>
+            <p><img id="arrow" src="assets/images/arrow.png"/>Klicke mit der Maus auf das Feld</p>
+          </div>
+          <div id="control-details">
+            <div class="nav">
+              <span id="field-number" class="item">Feld<span>14400</span></span>
+              <span id="coordinates" class="item right">Koordinaten:<span>52° 28” 24” N, 13° 24” 5” O</span></span>
+            </div>
+            <ul id="legend">
+              <li><span class="square"></span>Freier QM</li>
+              <li><span class="square"></span>Vergebener QM</li>
+            </ul>
+            <ul class="cf" id="parcel-matrix">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPLATES -->
+        <script type="text/template" id="plain-map">
           <svg id="map-parcels" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
             <g>
               <rect x="509.939" y="221.2" fill="#2D2D2D" stroke="#FFFFFF" stroke-width="1" stroke-miterlimit="10" width="4" height="4"/>
@@ -42117,38 +42150,8 @@
             </g>
             <path id="selection-line" d="M50,50 L100,100" style="stroke:#2D2D2D; fill:none; display:none;"/>
           </svg>
-          </div>
-        </div>
-      </div>
-      <div id="detail" class="col">
-        <header>
-          <div class="nav">
-            <span class="item">Navigation</span>
-            <img id="logo" src="assets/images/logo.png"/>
-          </div>
-        </header>
-        <div id="detail-container">
-          <div id="help-details">
-            <p>Wähle mit der Maus ein 225m<sup>2</sup> Feld</p>
-            <p><img id="arrow" src="assets/images/arrow.png"/>Klicke mit der Maus auf das Feld</p>
-          </div>
-          <div id="control-details">
-            <div class="nav">
-              <span id="field-number" class="item">Feld<span>14400</span></span>
-              <span id="coordinates" class="item right">Koordinaten:<span>52° 28” 24” N, 13° 24” 5” O</span></span>
-            </div>
-            <ul id="legend">
-              <li><span class="square"></span>Freier QM</li>
-              <li><span class="square"></span>Vergebener QM</li>
-            </ul>
-            <ul class="cf" id="parcel-matrix">
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+        </script>
 
-    <!-- TEMPLATES -->
     <script type="text/template" id="free-parcel-template">
       <div class="notice">
         <p>DIESER QUADTRATMETER HAT NOCH KEINEN BESITZER.</p>
@@ -42165,6 +42168,7 @@
         <p>SENDE IHN DIR PER MAIL ZU UND TEILE IHN MIT DEINEN FREUNDEN!</p>
         <ul class="actions">
           <li><a id="send-parcel" href="javascript:void(0);">Senden</a></li>
+          <li><a class="cancel-parcel" href="javascript:void(0);">Aufheben</a></li>
           <li><a href="javascript:void(0);">Partizipieren</a></li>
         </ul>
       </div>
@@ -42174,6 +42178,7 @@
         <p>DIESER QUADRATMETER IST SCHON VERGEBEN!</p>
         <ul class="actions">
           <li><a id="contact-parcel" href="javascript:void(0);">Besitzer kontaktieren</a></li>
+          <li><a class="cancel-parcel" href="javascript:void(0)">Zurück</a></li>
           <li><a href="javascript:void(0);">Partizipieren</a></li>
         </ul>
       </div>
@@ -42204,13 +42209,13 @@
     </script>
 
     <!-- JAVASCRIPT -->
-    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+<!--     // <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    // <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    // <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script> -->
 
-<!--     // <script src="assets/js/lib/jquery.js"></script>
-    // <script src="assets/js/lib/underscore.js"></script>
-    // <script src="assets/js/lib/backbone.js"></script> -->
+    <script src="assets/js/lib/jquery.js"></script>
+    <script src="assets/js/lib/underscore.js"></script>
+    <script src="assets/js/lib/backbone.js"></script>
 
     <script src="assets/js/qm.js"></script>
     <script src="assets/js/models/parcel.js"></script>
