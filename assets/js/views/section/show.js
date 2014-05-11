@@ -48,7 +48,10 @@ QM.Views.SectionView = Backbone.View.extend({
       parcelIndex = $target.prevAll('li').length,
       parcel = this.model.parcels.at(parcelIndex),
       view;
-      
+    
+    if(typeof this.model.get('number') === 'string') {
+      return;
+    }
 
     QM.EventBus.trigger('selected:parcel', parcel);
     view = new QM.Views.ParcelView({model: parcel});
