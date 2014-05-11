@@ -36,7 +36,7 @@ QM.Views.ParcelView = Backbone.View.extend({
 
   chooseParcel: function(event) {
     this.model.set('reserved', true);
-    this.el.html(this.chosenTemplate);
+    this.$el.html(this.chosenTemplate);
   },
 
   sendParcel: function() {
