@@ -18,7 +18,7 @@ ul {
 rect {
   fill: #2D2D2D; 
   stroke: #FFFFFF;
-  stroke-width: 2px;
+  stroke-width: 1px;
   stroke-miterlimit:10px;
 }
 
