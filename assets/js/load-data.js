@@ -6,21 +6,13 @@ $(function() {
   QM.Data.field = new QM.Collections.Field();
 
   for(i = 0; i < NUM_SECTIONS; i++) {
-    // var section = new QM.Models.Section({number: i + 1});
     var section = QM.Fabricators.Section.fabricate({
       section: {
         fabricateParcels: false
       }
     });
+
     section.set('number', i + 1);
-
-    // just fake this in real time
-    // for(j = 0; j < NUM_PARCELS; j++) {
-    //   section.parcels.add(new QM.Models.Parcel({
-    //     reserved: !!Math.round(Math.random())
-    //   }));
-    // }
-
     QM.Data.field.add(section);
   }
 
