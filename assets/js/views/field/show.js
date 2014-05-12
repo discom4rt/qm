@@ -48,7 +48,7 @@ QM.Views.FieldView = Backbone.View.extend({
     var $target = $(event.target),
       targetBox = $target[0].getBBox(),
       mapBox = this.$map[0].getBoundingClientRect(),
-      sectionNumber = $target.closest('g').prevAll().length,
+      sectionNumber = $target.prevAll().length,
       section = this.collection.at(sectionNumber),
       sectionNumberBox;
 
@@ -71,8 +71,7 @@ QM.Views.FieldView = Backbone.View.extend({
 
     y = sectionNumberBox.top - mapBox.top + 8;
     x = (sectionNumberBox.left * 800/mapBox.width) - mapBox.left - 10;
-    // console.log(x, y)
-    // console.log(sectionNumberBox,mapBox)
+
     this.$selectionLine.attr('d', 'M' + (targetBox.x - 1) + ',' + (targetBox.y + 1) + ' L' + x + ',' + y);
     this.$selectionLine.show();
   },
